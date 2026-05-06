@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Specjalna Akcja NRW · Darmowy audyt strony dla polskich firm — Piotr Muszyński</title>
-<meta name="description" content="Polskie firmy w NRW — darmowy audyt Twojej strony WWW dla pierwszych 50 firm. ChatGPT i Google AI zmieniły wyszukiwanie. 24h SLA. Bez zobowiązań.">
+<meta name="description" content="Polskie firmy w NRW — darmowy audyt Twojej strony WWW dla pierwszych 20 firm. ChatGPT i Google AI zmieniły wyszukiwanie. 24h SLA. Bez zobowiązań.">
 <meta property="og:title" content="Specjalna Akcja NRW — darmowy audyt strony dla polskich firm">
-<meta property="og:description" content="Pierwsze 50 polskich firm w NRW — darmowy skan w 24h. ChatGPT zmienił wyszukiwanie.">
+<meta property="og:description" content="Pierwsze 20 polskich firm w NRW — darmowy skan w 24h. ChatGPT zmienił wyszukiwanie.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://audyt.muszynski.online/nrw">
 <meta property="og:image" content="https://res.cloudinary.com/dyw1pi3nt/image/upload/w_1200,h_630,c_pad,b_rgb:0a0a0a/f_png,q_auto:best/v1776933061/logo-zloty-bialy-pionowy_cyxshk.svg">
@@ -276,6 +276,39 @@
 }
 .qs-note strong{color:#d4af37}
 
+/* Full audit teaser — strong contrast po quick score */
+.qs-fullaudit{
+  margin-top:1.5rem;padding:1.5rem;
+  background:linear-gradient(135deg,rgba(212,175,55,.12) 0%,rgba(212,175,55,.04) 100%);
+  border:1px solid rgba(212,175,55,.5);
+  border-radius:10px;
+}
+.qs-fullaudit__intro{
+  color:rgba(255,255,255,.95);font-size:.98rem;line-height:1.5;
+  margin-bottom:.9rem;
+}
+.qs-fullaudit__intro strong{color:#d4af37}
+.qs-fullaudit__list{
+  list-style:none;padding:0;margin:0 0 1rem 0;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.qs-fullaudit__list li{
+  position:relative;padding-left:1.5rem;
+  color:rgba(255,255,255,.85);font-size:.92rem;line-height:1.5;
+}
+.qs-fullaudit__list li::before{
+  content:"→";position:absolute;left:0;
+  color:#d4af37;font-weight:700;
+}
+.qs-fullaudit__list strong{color:#fff;font-weight:600}
+.qs-fullaudit__cta{
+  margin:0;padding-top:.9rem;
+  border-top:1px solid rgba(212,175,55,.2);
+  color:rgba(255,255,255,.95);font-size:.95rem;
+  line-height:1.5;
+}
+.qs-fullaudit__cta strong{color:#d4af37}
+
 /* Animacje — fade-in on scroll */
 @media(prefers-reduced-motion:no-preference){
   .section{opacity:0;transform:translateY(20px);transition:opacity .6s, transform .6s}
@@ -286,7 +319,7 @@
 <body>
 
 <div class="nrw-banner">
-  ⚡ <strong>Specjalna Akcja NRW · Maj 2026</strong> · Pierwsze 50 polskich firm — darmowy audyt
+  ⚡ <strong>Specjalna Akcja NRW · Maj 2026</strong> · Pierwsze 20 polskich firm — darmowy audyt
 </div>
 
 <nav class="nav">
@@ -307,9 +340,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="hero__counter">📍 Witten · NRW · pierwsze 50 firm polonijnych</span>
+    <span class="hero__counter">📍 Witten · NRW · pierwsze 20 firm polonijnych</span>
     <h1 class="hero__title">Polscy przedsiębiorcy w NRW — Twoja strona jest <em>niewidoczna</em> dla AI Search.</h1>
-    <p class="hero__sub">Niemiecki rynek właśnie się zmienia. ChatGPT i Google AI przejmują wyszukiwanie — a większość polskich firm w naszym regionie jest dla nich pustką. Robię <strong>darmowy skan</strong> dla pierwszych 50 firm polonijnych z NRW. Bez zobowiązań, bez karty.</p>
+    <p class="hero__sub">Niemiecki rynek właśnie się zmienia. ChatGPT i Google AI przejmują wyszukiwanie — a większość polskich firm w naszym regionie jest dla nich pustką. Robię <strong>darmowy skan</strong> dla pierwszych 20 firm polonijnych z NRW. Bez zobowiązań, bez karty.</p>
     <div class="hero__actions">
       <a href="#zamow" class="btn btn-primary btn-lg">Zamów darmowy skan</a>
       <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Albo 15 min rozmowy</a>
@@ -423,7 +456,7 @@
 <section class="section section--cta" id="zamow">
   <div class="container" style="max-width:640px">
     <h2 class="section__title">Wyślij URL strony. <em>Audyt PDF w 24h.</em></h2>
-    <p class="section__lead">Pierwsze 50 polskich firm z NRW — darmowy audyt strony WWW. Wpisz dane, wklej adres, gotowe.</p>
+    <p class="section__lead">Pierwsze 20 polskich firm z NRW — darmowy audyt strony WWW. Wpisz dane, wklej adres, gotowe.</p>
 
     <form id="audyt-form" class="audyt-form" novalidate>
       <input type="text" name="website_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
@@ -483,7 +516,17 @@
           <span class="qs-badge"><strong id="qs-total">?</strong>/5 ✓</span>
         </div>
         <ul class="qs-checks" id="qs-checks"></ul>
-        <p class="qs-note">To tylko 5 najszybszych sprawdzeń. <strong>Pełny audyt na email w 24h</strong> sprawdzi 5 obszarów (też Bezpieczeństwo, Niezależność od agencji, Gotowość pod AI) z konkretnymi naprawami.</p>
+        <div class="qs-fullaudit">
+          <p class="qs-fullaudit__intro">To dopiero <strong>5 sekund automatu</strong>. Pełny audyt PDF w ciągu 24h to:</p>
+          <ul class="qs-fullaudit__list">
+            <li><strong>Raport 12-15 stron</strong> w 5 obszarach</li>
+            <li><strong>Decyzja DZIAŁA / RYZYKO / NAPRAW</strong> per obszar — bez żargonu</li>
+            <li><strong>Konkretne naprawy</strong> posortowane: KRYTYCZNE / WAŻNE / OPCJONALNE</li>
+            <li><strong>Plan AI</strong> — jak dołożyć chatbot lub agenta bez przebudowy strony</li>
+            <li><strong>Niezależność od agencji</strong> — czyje to konto, kod, hosting; jak odejść bez utraty</li>
+          </ul>
+          <p class="qs-fullaudit__cta"><strong>Wszystko za 0€.</strong> Bez karty, bez zobowiązań — tylko dla pierwszych 20 polskich firm z NRW.</p>
+        </div>
       </div>
 
       <p class="as-msg">Sprawdź też folder „Spam" — czasem tam ląduję, bo piszę z nowej domeny.</p>
