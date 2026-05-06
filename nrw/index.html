@@ -235,6 +235,47 @@
 .as-msg{color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:.8rem}
 .as-msg strong{color:#d4af37}
 
+/* Quick score */
+.quick-score{
+  margin:1.5rem 0;padding:1.5rem;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(212,175,55,.25);
+  border-radius:10px;text-align:left;
+}
+.qs-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:1rem;margin-bottom:1rem;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.qs-label{color:rgba(255,255,255,.7);font-size:.95rem;font-weight:500}
+.qs-badge{
+  background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.5);
+  color:#d4af37;padding:.4rem .9rem;border-radius:999px;
+  font-size:.95rem;font-weight:500;
+}
+.qs-badge strong{font-size:1.15rem;color:#fff}
+.qs-checks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem}
+.qs-checks li{
+  display:grid;grid-template-columns:24px 1fr;gap:.8rem;
+  padding:.7rem 0;align-items:start;
+}
+.qs-icon{
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;flex-shrink:0;
+}
+.qs-icon--ok{background:rgba(0,200,100,.2);color:#3eda88;border:1px solid rgba(0,200,100,.4)}
+.qs-icon--bad{background:rgba(220,80,80,.2);color:#ff8888;border:1px solid rgba(220,80,80,.4)}
+.qs-text{display:flex;flex-direction:column;gap:.2rem}
+.qs-name{color:rgba(255,255,255,.95);font-size:.95rem;font-weight:500}
+.qs-msg{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.5}
+.qs-note{
+  margin-top:1.2rem;padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.6;
+}
+.qs-note strong{color:#d4af37}
+
 /* Animacje — fade-in on scroll */
 @media(prefers-reduced-motion:no-preference){
   .section{opacity:0;transform:translateY(20px);transition:opacity .6s, transform .6s}
@@ -434,6 +475,17 @@
       <div class="as-icon">✓</div>
       <h3 class="as-title">Mam Twoje zgłoszenie.</h3>
       <p class="as-msg">Audyt PDF dostaniesz na email <strong id="as-email"></strong> w ciągu <strong>24h</strong>.</p>
+
+      <!-- Quick score — wstępny wynik z 5 sprawdzeń -->
+      <div id="quick-score" class="quick-score" hidden>
+        <div class="qs-header">
+          <span class="qs-label">Wstępny wynik Twojej strony</span>
+          <span class="qs-badge"><strong id="qs-total">?</strong>/5 ✓</span>
+        </div>
+        <ul class="qs-checks" id="qs-checks"></ul>
+        <p class="qs-note">To tylko 5 najszybszych sprawdzeń. <strong>Pełny audyt na email w 24h</strong> sprawdzi 5 obszarów (też Bezpieczeństwo, Niezależność od agencji, Gotowość pod AI) z konkretnymi naprawami.</p>
+      </div>
+
       <p class="as-msg">Sprawdź też folder „Spam" — czasem tam ląduję, bo piszę z nowej domeny.</p>
       <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer" class="tidycal-cta">📞 Wolisz pogadać już teraz? Zarezerwuj 15 min</a>
     </div>
@@ -508,8 +560,28 @@ if (form) {
         successEmail.textContent = fd.get('email');
         form.hidden = true;
         success.hidden = false;
+        // Quick score (jeśli backend zwrócił)
+        if (json.score && json.score.checks) {
+          const qs = document.getElementById('quick-score');
+          const total = document.getElementById('qs-total');
+          const list = document.getElementById('qs-checks');
+          total.textContent = json.score.total;
+          list.innerHTML = '';
+          json.score.checks.forEach(c => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <span class="qs-icon ${c.ok ? 'qs-icon--ok' : 'qs-icon--bad'}">${c.ok ? '✓' : '✗'}</span>
+              <div class="qs-text">
+                <span class="qs-name">${c.name}</span>
+                <span class="qs-msg">${c.note}</span>
+              </div>
+            `;
+            list.appendChild(li);
+          });
+          qs.hidden = false;
+        }
         // Scroll do success
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        success.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         // Show error message inline
         const err = document.createElement('div');
