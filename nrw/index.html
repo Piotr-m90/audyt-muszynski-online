@@ -16,28 +16,161 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
-.nrw-banner{background:linear-gradient(135deg,#d4af37 0%,#f4d77a 100%);color:#0a0a0a;padding:.6rem 1rem;text-align:center;font-weight:600;font-size:.95rem;letter-spacing:.02em;border-bottom:1px solid rgba(0,0,0,.1)}
+/* ============ NRW campaign overrides ============ */
+
+/* Top banner — sticky, gold, action */
+.nrw-banner{
+  background:linear-gradient(135deg,#d4af37 0%,#f4d77a 100%);
+  color:#0a0a0a;padding:.7rem 1rem;text-align:center;font-weight:600;
+  font-size:clamp(.85rem, 2vw, .95rem);letter-spacing:.02em;
+  border-bottom:1px solid rgba(0,0,0,.15);
+  position:sticky;top:0;z-index:100;
+}
 .nrw-banner strong{font-weight:700}
-.hero h1 em{color:#d4af37;font-style:italic}
-.hero__counter{display:inline-block;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);padding:.3rem .8rem;border-radius:999px;font-size:.85rem;color:#d4af37;margin-bottom:1rem;letter-spacing:.05em}
-.dlaczego{padding:5rem 0;background:#0a0a0a}
-.dlaczego .grid-3>div{padding:2rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px}
-.dlaczego h3{color:#d4af37;font-size:1.2rem;margin-bottom:.8rem}
-.o-mnie{padding:5rem 0;background:linear-gradient(180deg,#0a0a0a 0%,#141414 100%)}
-.o-mnie__inner{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center;max-width:1000px;margin:0 auto}
-.o-mnie__photo{width:280px;height:280px;border-radius:8px;object-fit:cover;border:2px solid rgba(212,175,55,.3)}
-.o-mnie__text h2{font-family:'Fraunces',serif;font-size:2.2rem;margin-bottom:1rem;color:#fff}
+
+/* Hero — mobile-first scaling */
+.hero h1{font-size:clamp(1.8rem, 5vw, 3.2rem); line-height:1.15}
+.hero h1 em{color:#d4af37;font-style:italic;font-weight:600}
+.hero__sub{font-size:clamp(1rem, 2.5vw, 1.2rem); line-height:1.6}
+.hero__counter{
+  display:inline-block;background:rgba(212,175,55,.12);
+  border:1px solid rgba(212,175,55,.4);padding:.4rem 1rem;border-radius:999px;
+  font-size:.85rem;color:#d4af37;margin-bottom:1.2rem;letter-spacing:.05em;
+  font-weight:500;
+}
+.hero__actions{display:flex;flex-wrap:wrap;gap:1rem;margin:2rem 0}
+.hero__actions .btn{flex:1 1 240px;min-height:54px;display:inline-flex;align-items:center;justify-content:center}
+
+/* Klocki interaktywne */
+.section .grid-3>div, .section .grid-5>.card, .section .step{
+  cursor:default;
+  transition:transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s, border-color .25s;
+}
+.section .grid-3>div:hover, .section .grid-5>.card:hover, .section .step:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 40px rgba(212,175,55,.15);
+  border-color:rgba(212,175,55,.4);
+}
+
+/* Dlaczego teraz */
+.dlaczego{padding:clamp(3rem, 8vw, 5rem) 0;background:#0a0a0a}
+.dlaczego .grid-3>div{
+  padding:2rem;background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);border-radius:12px;
+}
+.dlaczego h3{color:#d4af37;font-size:1.2rem;margin-bottom:.8rem;font-weight:600}
+.dlaczego p{line-height:1.7;color:rgba(255,255,255,.8)}
+
+/* Quick-wins (dopamine reward — przed CTA) */
+.quick-wins{
+  padding:clamp(3rem, 8vw, 5rem) 0;
+  background:linear-gradient(180deg,#141414 0%,#0a0a0a 100%);
+}
+.quick-wins__intro{
+  text-align:center;max-width:700px;margin:0 auto 2.5rem;
+  color:rgba(255,255,255,.85);line-height:1.7;
+}
+.quick-wins__intro strong{color:#d4af37}
+.quick-wins .grid-3{gap:1.5rem}
+.quick-wins .grid-3>div{
+  padding:2rem;background:rgba(212,175,55,.05);
+  border:1px solid rgba(212,175,55,.25);border-radius:12px;
+  position:relative;
+}
+.quick-wins .grid-3 h3{
+  color:#d4af37;font-size:1.1rem;margin-bottom:.6rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.quick-wins .qw-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;background:#d4af37;color:#0a0a0a;
+  font-weight:700;font-size:.9rem;
+}
+.quick-wins .qw-link{
+  color:#d4af37;text-decoration:none;border-bottom:1px solid rgba(212,175,55,.4);
+  font-size:.92rem;display:inline-block;margin-top:.6rem;
+}
+.quick-wins .qw-link:hover{border-bottom-color:#d4af37}
+.quick-wins p{line-height:1.6;color:rgba(255,255,255,.85);font-size:.95rem}
+
+/* O mnie — zdjęcie nieucięte, większe na mobile */
+.o-mnie{padding:clamp(3rem, 8vw, 5rem) 0;background:linear-gradient(180deg,#0a0a0a 0%,#141414 100%)}
+.o-mnie__inner{
+  display:grid;grid-template-columns:320px 1fr;gap:3rem;align-items:center;
+  max-width:1000px;margin:0 auto;
+}
+.o-mnie__photo{
+  width:100%;max-width:320px;aspect-ratio:1/1;
+  border-radius:12px;object-fit:cover;object-position:center 25%;
+  border:3px solid rgba(212,175,55,.4);
+  box-shadow:0 12px 40px rgba(212,175,55,.2);
+  transition:transform .35s, box-shadow .35s;
+}
+.o-mnie__photo:hover{
+  transform:scale(1.02);
+  box-shadow:0 16px 50px rgba(212,175,55,.35);
+}
+.o-mnie__text h2{font-family:'Fraunces',serif;font-size:clamp(1.6rem, 3.5vw, 2.4rem);margin-bottom:1rem;color:#fff}
 .o-mnie__text p{margin-bottom:1rem;line-height:1.7;color:rgba(255,255,255,.85)}
-.o-mnie__text a{color:#d4af37;text-decoration:none;border-bottom:1px solid rgba(212,175,55,.4)}
-.o-mnie__text a:hover{border-bottom-color:#d4af37}
-.tidycal-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;background:rgba(212,175,55,.1);border:1px solid #d4af37;color:#d4af37;border-radius:6px;text-decoration:none;font-weight:500;margin-top:1rem;transition:.2s}
-.tidycal-cta:hover{background:#d4af37;color:#0a0a0a}
-@media(max-width:768px){.o-mnie__inner{grid-template-columns:1fr;text-align:center}.o-mnie__photo{margin:0 auto}}
-.section--cta .tidycal-link{display:block;text-align:center;margin-top:1.5rem;color:rgba(255,255,255,.7);font-size:.95rem}
-.section--cta .tidycal-link a{color:#d4af37;text-decoration:underline}
-.footer__legal{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem;color:rgba(255,255,255,.5)}
-.footer__legal a{color:rgba(255,255,255,.7);margin:0 .5rem;text-decoration:none}
+.o-mnie__text a{color:#d4af37;text-decoration:none;border-bottom:1px solid rgba(212,175,55,.4);transition:.2s}
+.o-mnie__text a:hover{border-bottom-color:#d4af37;color:#f4d77a}
+
+/* CTA buttons unified */
+.tidycal-cta{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;
+  background:rgba(212,175,55,.1);border:1px solid #d4af37;color:#d4af37;
+  border-radius:8px;text-decoration:none;font-weight:500;margin-top:1rem;
+  transition:.2s;cursor:pointer;
+}
+.tidycal-cta:hover{background:#d4af37;color:#0a0a0a;transform:translateY(-2px)}
+
+/* CTA sekcja zamów — Teable form button */
+.section--cta{padding:clamp(3rem, 8vw, 5rem) 0;text-align:center}
+.section--cta .section__title{font-size:clamp(1.8rem, 4vw, 2.6rem)}
+.section--cta__actions{
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;
+  max-width:600px;margin:2rem auto 0;
+}
+.section--cta__actions .btn{flex:1 1 240px;min-height:60px;font-size:1.05rem}
+.section--cta__note{
+  margin-top:1.5rem;color:rgba(255,255,255,.65);font-size:.95rem;
+}
+.section--cta__note a{color:#d4af37;text-decoration:underline}
+
+/* Footer legal */
+.footer__legal{
+  margin-top:1.2rem;padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:.85rem;color:rgba(255,255,255,.5);
+  text-align:center;
+}
+.footer__legal a{
+  color:rgba(255,255,255,.7);margin:0 .8rem;
+  text-decoration:none;transition:color .2s;
+}
 .footer__legal a:hover{color:#d4af37}
+
+/* Mobile breakpoints */
+@media(max-width:768px){
+  .o-mnie__inner{grid-template-columns:1fr;text-align:center;gap:2rem}
+  .o-mnie__photo{margin:0 auto;max-width:280px}
+  .hero__actions{flex-direction:column}
+  .hero__actions .btn{width:100%}
+  .section--cta__actions{flex-direction:column}
+  .section--cta__actions .btn{width:100%}
+}
+@media(max-width:480px){
+  .nrw-banner{padding:.55rem .8rem;font-size:.8rem}
+  .hero{padding:2.5rem 1rem 3rem}
+  .hero__counter{font-size:.78rem;padding:.3rem .8rem}
+  .container{padding:0 1rem}
+}
+
+/* Animacje — fade-in on scroll */
+@media(prefers-reduced-motion:no-preference){
+  .section{opacity:0;transform:translateY(20px);transition:opacity .6s, transform .6s}
+  .section.visible{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
@@ -53,7 +186,7 @@
     </a>
     <div class="nav__links">
       <a href="#dlaczego">Dlaczego teraz</a>
-      <a href="#zakres">Co sprawdzam</a>
+      <a href="#quick-wins">Sprawdź sam</a>
       <a href="#o-mnie">O mnie</a>
       <a href="#zamow">Zamów</a>
     </div>
@@ -64,7 +197,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="hero__counter">📍 Witten · NRW · pierwsze 50 firm</span>
+    <span class="hero__counter">📍 Witten · NRW · pierwsze 50 firm polonijnych</span>
     <h1 class="hero__title">Polscy przedsiębiorcy w NRW — Twoja strona jest <em>niewidoczna</em> dla AI Search.</h1>
     <p class="hero__sub">Niemiecki rynek właśnie się zmienia. ChatGPT i Google AI przejmują wyszukiwanie — a większość polskich firm w naszym regionie jest dla nich pustką. Robię <strong>darmowy skan</strong> dla pierwszych 50 firm polonijnych z NRW. Bez zobowiązań, bez karty.</p>
     <div class="hero__actions">
@@ -81,7 +214,7 @@
 </section>
 
 <!-- DLACZEGO TERAZ -->
-<section class="dlaczego" id="dlaczego">
+<section class="dlaczego section" id="dlaczego">
   <div class="container">
     <h2 class="section__title">Dlaczego <em>teraz</em>?</h2>
     <p class="section__lead">Polski przedsiębiorca w Niemczech ma teraz <strong>3 nakładające się problemy</strong>. Każdy z nich pojedynczo jest do ogarnięcia. Razem — robią się ścianą.</p>
@@ -99,6 +232,34 @@
         <p>Jest nas tu więcej niż kiedykolwiek — gastronomia, usługi, handel, biura tłumaczeń, opieka. Ale brakuje lokalnego głosu w temacie AI. Tę akcję robię żebyśmy nie zostali w tyle za niemieckimi konkurentami.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- QUICK-WINS — dopamine reward przed submitem -->
+<section class="quick-wins section" id="quick-wins">
+  <div class="container">
+    <h2 class="section__title">Sprawdź sam <em>w 5 minut</em></h2>
+    <p class="quick-wins__intro">Zanim wyślesz mi swoją stronę — <strong>3 darmowe narzędzia</strong> które już teraz pokażą Ci czy masz problem. Robisz to sam, w 5 minut, bez logowania.</p>
+    <div class="grid-3">
+      <div>
+        <h3><span class="qw-num">1</span> PageSpeed Insights</h3>
+        <p>Wpisz adres swojej strony. Google pokaże Ci ile sekund ładuje się dla klienta. <strong>Wynik niżej niż 50?</strong> Tracisz klientów którzy nie czekają.</p>
+        <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer" class="qw-link">Otwórz PageSpeed Insights →</a>
+      </div>
+      <div>
+        <h3><span class="qw-num">2</span> Test ChatGPT</h3>
+        <p>Otwórz ChatGPT i zapytaj: <em>„Polecasz {Twoja branża} w {Twoje miasto}?"</em>. Pojawiasz się w odpowiedzi? Jeśli nie — AI nie wie że istniejesz. Klienci też się nie dowiedzą.</p>
+        <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="qw-link">Sprawdź w ChatGPT →</a>
+      </div>
+      <div>
+        <h3><span class="qw-num">3</span> Google Search Console</h3>
+        <p>Sprawdź czy Google w ogóle indeksuje Twoją stronę. Brak danych = brak widoczności = brak klientów. Setup w 2 minuty (potrzebujesz dostępu do hostingu).</p>
+        <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener noreferrer" class="qw-link">Otwórz Search Console →</a>
+      </div>
+    </div>
+    <p class="quick-wins__intro" style="margin-top:2.5rem">
+      Już znalazłeś problem? <strong>Wyślij stronę na pełny audyt</strong> — sprawdzę 5 obszarów (nie tylko prędkość), znajdę co pominąłeś i dam plan napraw w PDF.
+    </p>
   </div>
 </section>
 
@@ -144,12 +305,12 @@
       <div class="step">
         <div class="step__num">01</div>
         <h3>Wysyłasz URL</h3>
-        <p>Adres Twojej strony WWW. Nic więcej nie potrzebuję.</p>
+        <p>Adres Twojej strony WWW. Nawet bez „https://" — wystarczy „www.firma.de" albo „firma.pl".</p>
       </div>
       <div class="step">
         <div class="step__num">02</div>
         <h3>Analizuję</h3>
-        <p>Bez Twojego udziału. AI + ręczna weryfikacja. 24h.</p>
+        <p>Bez Twojego udziału. AI + ręczna weryfikacja. Pełny audyt w 24h.</p>
       </div>
       <div class="step">
         <div class="step__num">03</div>
@@ -161,10 +322,10 @@
 </section>
 
 <!-- O MNIE -->
-<section class="o-mnie" id="o-mnie">
+<section class="o-mnie section" id="o-mnie">
   <div class="container">
     <div class="o-mnie__inner">
-      <img src="https://res.cloudinary.com/dyw1pi3nt/image/upload/q_auto/f_auto/v1777071626/Zrzut_ekranu_2026-04-25_o_00.59.51_s4qoyu.png" alt="Piotr Muszyński" class="o-mnie__photo">
+      <img src="https://res.cloudinary.com/dyw1pi3nt/image/upload/q_auto/f_auto/v1777071626/Zrzut_ekranu_2026-04-25_o_00.59.51_s4qoyu.png" alt="Piotr Muszyński — AI Architect, Witten NRW" class="o-mnie__photo">
       <div class="o-mnie__text">
         <h2>Cześć, jestem Piotr.</h2>
         <p>Mieszkam w <strong>Witten</strong> i pomagam polskim firmom w NRW korzystać ze sztucznej inteligencji. Z tła — programista i AI Architect dla małych firm.</p>
@@ -176,47 +337,18 @@
   </div>
 </section>
 
-<!-- ZAMÓW -->
+<!-- ZAMÓW — Teable Form button -->
 <section class="section section--cta" id="zamow">
   <div class="container">
     <h2 class="section__title">Wyślij URL. <em>Wynik w 24h.</em></h2>
-    <p class="section__lead">Pierwsze 50 polskich firm z NRW — darmowy skan strony WWW. Bez zobowiązań, bez karty.</p>
-    <form class="form" id="audit-form" method="POST" action="../send.php">
-      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-      <input type="hidden" name="tier" value="skan">
-      <input type="hidden" name="kampania" value="nrw-akcja-2026-05">
-      <div class="form__row">
-        <label>
-          <span>URL strony do audytu *</span>
-          <input type="url" name="url" required placeholder="https://twoja-strona.pl">
-        </label>
-      </div>
-      <div class="form__row form__row--2col">
-        <label>
-          <span>Imię *</span>
-          <input type="text" name="name" required>
-        </label>
-        <label>
-          <span>Email *</span>
-          <input type="email" name="email" required>
-        </label>
-      </div>
-      <div class="form__row form__row--2col">
-        <label>
-          <span>Miasto w NRW</span>
-          <input type="text" name="miasto" placeholder="np. Bochum">
-        </label>
-        <label>
-          <span>Branża (opcjonalnie)</span>
-          <input type="text" name="branza" placeholder="np. restauracja, warsztat, biuro tłumaczeń">
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary btn-lg btn-block">Zamów darmowy skan (0€)</button>
-      <p class="form__note">Po wysłaniu otrzymasz potwierdzenie. Raport PDF dostarczamy w 24h od potwierdzenia.</p>
-    </form>
-    <div class="tidycal-link">
-      Wolisz najpierw pogadać? <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer">Zarezerwuj 15 min rozmowy</a>
+    <p class="section__lead">Pierwsze 50 polskich firm z NRW — darmowy skan strony WWW. Bez zobowiązań, bez karty. Wyślij nawet sam adres „firma.pl" — reszta pól opcjonalna.</p>
+    <div class="section--cta__actions">
+      <a href="https://app.teable.ai/share/shrx7Ct43IigWQ6TYrf/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">📋 Zamów darmowy audyt (0€)</a>
+      <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">📞 Albo 15 min rozmowy</a>
     </div>
+    <p class="section--cta__note">
+      Po wysłaniu zgłoszenia odezwę się <strong>w ciągu 24h</strong> z raportem PDF. Wolisz pogadać teraz? <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer">Zarezerwuj rozmowę</a>.
+    </p>
   </div>
 </section>
 
@@ -244,29 +376,18 @@
 </footer>
 
 <script>
-document.getElementById('audit-form').addEventListener('submit', async e => {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const btn = form.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Wysyłanie...';
-  try {
-    const res = await fetch('../send.php', { method: 'POST', body: data });
-    const json = await res.json();
-    if (json.ok) {
-      form.innerHTML = '<div class="form__success"><h3>Dziękujemy.</h3><p>Sprawdź skrzynkę — wysłałem potwierdzenie. Raport będzie u Ciebie w 24h.</p></div>';
-    } else {
-      btn.disabled = false;
-      btn.textContent = 'Zamów darmowy skan (0€)';
-      alert(json.msg || 'Błąd wysyłki. Napisz na kontakt@muszynski.online');
-    }
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'Zamów darmowy skan (0€)';
-    alert('Błąd sieci. Napisz na kontakt@muszynski.online');
-  }
-});
+// Fade-in on scroll
+if ('IntersectionObserver' in window) {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.section').forEach(s => obs.observe(s));
+}
 </script>
 
 </body>
