@@ -166,6 +166,75 @@
   .container{padding:0 1rem}
 }
 
+/* Inline form */
+.audyt-form{
+  display:flex;flex-direction:column;gap:1.2rem;
+  margin-top:2rem;padding:2rem;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(212,175,55,.25);border-radius:12px;
+  text-align:left;
+}
+.af-row{display:flex;flex-direction:column;gap:1.2rem}
+.af-row--2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.af-row--2{grid-template-columns:1fr}}
+.af-field{display:flex;flex-direction:column;gap:.4rem}
+.af-label{
+  font-size:.92rem;font-weight:500;color:rgba(255,255,255,.85);
+  letter-spacing:.01em;
+}
+.af-label em{color:#d4af37;font-style:normal;margin-left:.2rem}
+.af-field input{
+  padding:.85rem 1rem;font-size:1rem;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;color:#fff;
+  font-family:inherit;
+  transition:border-color .2s, box-shadow .2s;
+}
+.af-field input:focus{
+  outline:none;
+  border-color:#d4af37;
+  box-shadow:0 0 0 3px rgba(212,175,55,.15);
+}
+.af-field input::placeholder{color:rgba(255,255,255,.35)}
+.af-hint{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:.2rem}
+.af-submit{margin-top:.5rem;font-size:1.05rem;min-height:56px}
+.af-submit:disabled{opacity:.6;cursor:not-allowed}
+.af-note{
+  text-align:center;color:rgba(255,255,255,.65);
+  font-size:.92rem;margin-top:.5rem;
+}
+.af-note a{color:#d4af37;text-decoration:underline}
+.af-error{
+  background:rgba(220,50,50,.15);border:1px solid rgba(220,50,50,.4);
+  color:#ff8888;padding:.8rem 1rem;border-radius:8px;
+  font-size:.92rem;
+}
+
+/* Success state */
+.audyt-success{
+  margin-top:2rem;padding:2.5rem 2rem;
+  background:linear-gradient(180deg,rgba(212,175,55,.08) 0%,rgba(212,175,55,.03) 100%);
+  border:1px solid rgba(212,175,55,.4);border-radius:12px;
+  text-align:center;
+  animation:fadeInUp .5s ease-out;
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+.as-icon{
+  width:64px;height:64px;border-radius:50%;
+  background:#d4af37;color:#0a0a0a;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;font-weight:700;
+  margin:0 auto 1.5rem;
+  box-shadow:0 8px 24px rgba(212,175,55,.4);
+}
+.as-title{font-family:'Fraunces',serif;font-size:1.8rem;color:#fff;margin-bottom:1rem}
+.as-msg{color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:.8rem}
+.as-msg strong{color:#d4af37}
+
 /* Animacje — fade-in on scroll */
 @media(prefers-reduced-motion:no-preference){
   .section{opacity:0;transform:translateY(20px);transition:opacity .6s, transform .6s}
@@ -309,18 +378,65 @@
   </div>
 </section>
 
-<!-- ZAMÓW — Teable Form button -->
+<!-- ZAMÓW — Inline form -->
 <section class="section section--cta" id="zamow">
-  <div class="container">
-    <h2 class="section__title">Wyślij URL. <em>Wynik w 24h.</em></h2>
-    <p class="section__lead">Pierwsze 50 polskich firm z NRW — darmowy skan strony WWW. Bez zobowiązań, bez karty. Wyślij nawet sam adres „firma.pl" — reszta pól opcjonalna.</p>
-    <div class="section--cta__actions">
-      <a href="https://app.teable.ai/share/shrx7Ct43IigWQ6TYrf/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">📋 Zamów darmowy audyt (0€)</a>
-      <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">📞 Albo 15 min rozmowy</a>
+  <div class="container" style="max-width:640px">
+    <h2 class="section__title">Wyślij URL strony. <em>Audyt PDF w 24h.</em></h2>
+    <p class="section__lead">Pierwsze 50 polskich firm z NRW — darmowy audyt strony WWW. Wpisz dane, wklej adres, gotowe.</p>
+
+    <form id="audyt-form" class="audyt-form" novalidate>
+      <input type="text" name="website_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <input type="hidden" name="kampania" value="nrw-akcja-2026-05">
+
+      <div class="af-row af-row--2">
+        <label class="af-field">
+          <span class="af-label">Imię <em>*</em></span>
+          <input type="text" name="imie" required autocomplete="given-name" placeholder="Jak się do Ciebie zwracać">
+        </label>
+        <label class="af-field">
+          <span class="af-label">Nazwisko</span>
+          <input type="text" name="nazwisko" autocomplete="family-name" placeholder="opcjonalnie">
+        </label>
+      </div>
+
+      <label class="af-field">
+        <span class="af-label">Email <em>*</em></span>
+        <input type="email" name="email" required autocomplete="email" placeholder="email@firma.pl">
+      </label>
+
+      <label class="af-field">
+        <span class="af-label">Adres Twojej strony WWW <em>*</em></span>
+        <input type="text" name="url" required autocomplete="url" placeholder="np. firma.pl albo www.firma.de">
+        <span class="af-hint">Wystarczy nawet „firma.pl" — bez https://</span>
+      </label>
+
+      <div class="af-row af-row--2">
+        <label class="af-field">
+          <span class="af-label">Miasto</span>
+          <input type="text" name="miasto" placeholder="np. Bochum">
+        </label>
+        <label class="af-field">
+          <span class="af-label">Telefon</span>
+          <input type="tel" name="telefon" autocomplete="tel" placeholder="opcjonalnie">
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block af-submit">
+        Zamów darmowy audyt (0€)
+      </button>
+
+      <p class="af-note">
+        Wolisz najpierw pogadać? <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer">Zarezerwuj 15 min rozmowy</a>
+      </p>
+    </form>
+
+    <div id="audyt-success" class="audyt-success" hidden>
+      <div class="as-icon">✓</div>
+      <h3 class="as-title">Mam Twoje zgłoszenie.</h3>
+      <p class="as-msg">Audyt PDF dostaniesz na email <strong id="as-email"></strong> w ciągu <strong>24h</strong>.</p>
+      <p class="as-msg">Sprawdź też folder „Spam" — czasem tam ląduję, bo piszę z nowej domeny.</p>
+      <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer" class="tidycal-cta">📞 Wolisz pogadać już teraz? Zarezerwuj 15 min</a>
     </div>
-    <p class="section--cta__note">
-      Po wysłaniu zgłoszenia odezwę się <strong>w ciągu 24h</strong> z raportem PDF. Wolisz pogadać teraz? <a href="https://tidycal.com/pmuszynski/15-konkretna-rozmowa" target="_blank" rel="noopener noreferrer">Zarezerwuj rozmowę</a>.
-    </p>
   </div>
 </section>
 
@@ -359,6 +475,59 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.section').forEach(s => obs.observe(s));
+}
+
+// Audyt form submit
+const ENDPOINT = 'https://konsultacja.muszynski.online/send-audyt.php';
+const form = document.getElementById('audyt-form');
+const success = document.getElementById('audyt-success');
+const successEmail = document.getElementById('as-email');
+
+if (form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    // Remove existing error
+    const oldErr = form.querySelector('.af-error');
+    if (oldErr) oldErr.remove();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wysyłam…';
+
+    const fd = new FormData(form);
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        body: fd,
+      });
+      const json = await res.json();
+
+      if (json.ok) {
+        // Show success state, hide form
+        successEmail.textContent = fd.get('email');
+        form.hidden = true;
+        success.hidden = false;
+        // Scroll do success
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        // Show error message inline
+        const err = document.createElement('div');
+        err.className = 'af-error';
+        err.textContent = json.msg || 'Coś poszło nie tak. Napisz na kontakt@muszynski.online';
+        form.insertBefore(err, submitBtn);
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    } catch (err) {
+      const errEl = document.createElement('div');
+      errEl.className = 'af-error';
+      errEl.innerHTML = 'Błąd sieci. Napisz bezpośrednio: <a href="mailto:kontakt@muszynski.online" style="color:inherit">kontakt@muszynski.online</a>';
+      form.insertBefore(errEl, submitBtn);
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
 }
 </script>
 
