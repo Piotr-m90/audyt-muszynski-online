@@ -15,6 +15,82 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
+
+<!-- SEO+GEO: structured data dla akcji NRW -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SpecialAnnouncement",
+      "name": "Specjalna Akcja NRW — darmowy audyt strony WWW dla pierwszych 20 polskich firm",
+      "text": "Pierwsze 20 polskich firm prowadzących działalność w Nadrenii Północnej-Westfalii (NRW) dostają darmowy skan strony WWW w 24h. Bez zobowiązań, bez sprzedaży follow-up. Akcja sąsiedzka: Piotr Muszyński z Witten dla polskich przedsiębiorców z NRW.",
+      "datePosted": "2026-05-06",
+      "expires": "2026-06-20",
+      "category": "https://www.wikidata.org/wiki/Q35120",
+      "spatialCoverage": [
+        { "@type": "City", "name": "Witten", "containedInPlace": { "@type": "AdministrativeArea", "name": "Nadrenia Północna-Westfalia" } },
+        { "@type": "City", "name": "Bochum" },
+        { "@type": "City", "name": "Dortmund" },
+        { "@type": "City", "name": "Essen" },
+        { "@type": "City", "name": "Düsseldorf" },
+        { "@type": "City", "name": "Köln" },
+        { "@type": "City", "name": "Duisburg" },
+        { "@type": "City", "name": "Wuppertal" },
+        { "@type": "City", "name": "Gelsenkirchen" }
+      ],
+      "url": "https://audyt.muszynski.online/nrw/",
+      "announcementLocation": {
+        "@type": "AdministrativeArea",
+        "name": "Nadrenia Północna-Westfalia (NRW), Niemcy"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://audyt.muszynski.online/nrw/#service",
+      "serviceType": "Darmowy audyt strony WWW (akcja NRW)",
+      "name": "Darmowy skan strony WWW dla polskich firm w NRW",
+      "description": "Akcja sąsiedzka maj-czerwiec 2026: pierwsze 20 polskich firm w Nadrenii Północnej-Westfalii dostają darmowy 5-punktowy skan + PDF + spersonalizowany teaser pełnego audytu. 24h SLA.",
+      "provider": { "@id": "https://muszynski.online/#person" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Nadrenia Północna-Westfalia (NRW)" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Polskie firmy w NRW — rzemiosło, gastronomia, sklepy spożywcze, usługi B2B, tłumacze"
+      },
+      "availableLanguage": ["pl", "de"],
+      "url": "https://audyt.muszynski.online/nrw/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2026-05-06",
+        "validThrough": "2026-06-20"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://muszynski.online/#person",
+      "name": "Piotr Muszyński",
+      "jobTitle": "AI Architect dla polskiej przedsiębiorczości w Niemczech i DACH",
+      "url": "https://muszynski.online/",
+      "homeLocation": {
+        "@type": "Place",
+        "address": { "@type": "PostalAddress", "addressLocality": "Witten", "addressRegion": "Nadrenia Północna-Westfalia", "addressCountry": "DE" }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Muszyński.online", "item": "https://muszynski.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Audyt strony WWW", "item": "https://audyt.muszynski.online/" },
+        { "@type": "ListItem", "position": 3, "name": "Akcja NRW", "item": "https://audyt.muszynski.online/nrw/" }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
 /* ============ NRW campaign overrides ============ */
 
