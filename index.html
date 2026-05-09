@@ -15,6 +15,147 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- SEO+GEO: structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://audyt.muszynski.online/#service",
+      "serviceType": "Audyt strony WWW",
+      "name": "Audyt strony WWW dla polskich firm w Niemczech",
+      "description": "Niezależny audyt strony WWW. Decyzja DZIAŁA / RYZYKO / NAPRAW w 72h. 5 obszarów: szybkość, widoczność w Google, bezpieczeństwo, niezależność, gotowość pod AI. Po polsku, w kontekście DACH (DSGVO, Impressum, HWG).",
+      "provider": { "@id": "https://muszynski.online/#person" },
+      "areaServed": [
+        { "@type": "Country", "name": "Niemcy" },
+        { "@type": "AdministrativeArea", "name": "Nadrenia Północna-Westfalia (NRW)" },
+        { "@type": "Country", "name": "Polska" },
+        { "@type": "AdministrativeArea", "name": "DACH (Niemcy, Austria, Szwajcaria)" }
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Polskie firmy w Niemczech (Polonia DACH) — rzemiosło, gastronomia, sklepy, usługi B2B, tłumacze"
+      },
+      "availableLanguage": ["pl", "de"],
+      "url": "https://audyt.muszynski.online/",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Skan",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "PDF 1 strona, 24h, 5 podstawowych metryk z decyzją"
+        },
+        {
+          "@type": "Offer",
+          "name": "Audyt pełny + DEMO",
+          "price": "299",
+          "priceCurrency": "EUR",
+          "description": "PDF 12-15 stron + DEMO nowej strony + 30 min rozmowa, 3 dni robocze. Promocja do 30.06.2026 (zamiast €470).",
+          "priceValidUntil": "2026-06-30"
+        },
+        {
+          "@type": "Offer",
+          "name": "Audyt + Plan AI",
+          "price": "999",
+          "priceCurrency": "EUR",
+          "description": "Pełny audyt + 12-tygodniowy plan wdrożenia AI w firmie"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://muszynski.online/#person",
+      "name": "Piotr Muszyński",
+      "givenName": "Piotr",
+      "familyName": "Muszyński",
+      "jobTitle": "AI Architect dla polskiej przedsiębiorczości w Niemczech i DACH",
+      "url": "https://muszynski.online/",
+      "sameAs": [
+        "https://www.linkedin.com/in/piotrmuszynski/",
+        "https://audyt.muszynski.online/",
+        "https://konsultacja.muszynski.online/"
+      ],
+      "knowsLanguage": ["pl", "de", "en"],
+      "homeLocation": {
+        "@type": "Place",
+        "address": { "@type": "PostalAddress", "addressLocality": "Witten", "addressRegion": "Nadrenia Północna-Westfalia", "addressCountry": "DE" }
+      },
+      "knowsAbout": ["Audyt stron WWW", "AI Operating Systems dla MŚP", "Pozycjonowanie pod AI search (GEO)", "Konsultacje AI dla polskich firm w Niemczech"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Czy audyt jest po polsku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Raport po polsku, rozmowa po polsku (lub niemiecku jeśli wolisz). Bez tłumaczeń maszynowych z angielskiego, bez technicznego żargonu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy macie doświadczenie z polskimi firmami w Niemczech?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak — to nasz target. Polonia DACH: rzemiosło, gastronomia, sklepy spożywcze, usługi B2B, tłumacze, transport. Najczęstsze lokalizacje klientów: NRW (Witten, Bochum, Dortmund, Essen, Düsseldorf, Köln, Duisburg). Operator (Piotr Muszyński) mieszka w Witten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co to znaczy \"gotowość pod AI\" jako piąty obszar audytu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "W 2026 ChatGPT, Claude, Perplexity i Google AI Overview zaczęły polecać użytkownikom firmy lokalne. Sprawdzamy czy Twoja strona jest \"widoczna\" dla tych systemów — czy mają jasne dane (kim jesteś, co robisz, dla kogo, gdzie), structured data (schema.org), llms.txt, i czy AI nie przekierowuje klientów do konkurencji."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile trwa audyt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skan €0 — 24 godziny od zgłoszenia. Audyt pełny €299 — 3 dni robocze. Audyt + Plan AI €999 — 5 dni roboczych."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy dostanę DEMO nowej strony?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak — w pakiecie €299 i €999. DEMO to wygenerowany koncept Twojej nowej strony jako działający prototyp w przeglądarce. Pokazuje co zmieniłoby się gdybyś poszedł dalej. Jeśli zamówisz Budowę strony w ciągu 14 dni od audytu — masz 30% zniżki."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy będę rozumiał raport jeśli nie znam się na technologii?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak — to założenie produktu. Raport nie ma żargonu. Każdy z 5 obszarów dostaje decyzję DZIAŁA / RYZYKO / NAPRAW + listę priorytetów (KRYTYCZNE / WAŻNE / OPCJONALNE) co naprawić w jakiej kolejności. 30 min rozmowa po raporcie omawia co konkretnie znaczy dla Twojej firmy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy faktura będzie po polsku czy niemiecku? Z VAT czy Reverse Charge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Faktura po polsku (operator Muszyński.online to polska działalność). Dla firm zarejestrowanych w DE (z VAT-ID): Reverse Charge zgodnie z §13b UStG. Dla osób prywatnych: VAT polski 23%."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Muszyński.online", "item": "https://muszynski.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Audyt strony WWW", "item": "https://audyt.muszynski.online/" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

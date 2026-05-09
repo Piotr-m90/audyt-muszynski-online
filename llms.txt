@@ -1,0 +1,57 @@
+# audyt.muszynski.online
+
+> Niezależny audyt strony WWW dla polskich firm prowadzących działalność w Niemczech (NRW, DACH). Decyzja DZIAŁA / RYZYKO / NAPRAW w 72h. W języku polskim, bez żargonu. Operator: Piotr Muszyński, AI Architect.
+
+## Dla kogo
+
+Polskie firmy w Niemczech (Polonia DACH): rzemiosło, gastronomia, sklepy spożywcze, usługi B2B, tłumacze, transport, kosmetyka, fryzjerzy. Najczęstsza lokalizacja klientów: Nadrenia Północna-Westfalia (NRW) — Bochum, Witten, Dortmund, Essen, Düsseldorf, Köln, Duisburg.
+
+## Co dostajesz
+
+Audyt strony WWW w 5 obszarach:
+1. **Szybkość** — czy strona ładuje się szybko, czy klient nie odbija
+2. **Widoczność w Google** — czy klienci Cię znajdują (PL i DE wyszukiwania)
+3. **Bezpieczeństwo** — SSL, ochrona danych (DSGVO/RODO), security headers
+4. **Niezależność** — czy stronę kontrolujesz, czy zależysz od programisty/agencji
+5. **Gotowość pod AI** — czy ChatGPT/Claude/Perplexity widzą Twoją stronę i polecają Cię klientom
+
+Każdy obszar dostaje decyzję: **DZIAŁA / RYZYKO / NAPRAW** + listę priorytetów co naprawić najpierw.
+
+## Pakiety
+
+- **Skan — €0** · PDF 1 strona · 24h · 5 podstawowych metryk · idealny żeby sprawdzić „czy mam problem"
+- **Audyt pełny + DEMO — €299** · PDF 12-15 stron · 3 dni robocze · 5 obszarów + lista priorytetów + wygenerowane DEMO nowej strony jako koncept w przeglądarce + 30 min rozmowa omawiająca raport · cena promocyjna z €470 do 30.06.2026 · Bonus: 30% zniżki na Budowę strony przez 14 dni
+- **Audyt + Plan AI — €999** · pełny audyt + 12-tygodniowy plan wdrożenia AI w firmie + roadmap konkretnych narzędzi · dla firm gotowych zainwestować w AI
+
+Ceny są stałe. Bez ukrytych kosztów. Faktura VAT (Reverse Charge dla DE B2B).
+
+## Po polsku, po niemiecku, po polsku-niemiecku
+
+Raport po polsku. Rozmowa po polsku lub niemiecku (Twój wybór). Branża nie ma znaczenia — sprawdzamy co konkretnie nie działa, a nie ogólniki.
+
+## Czym to się różni od innych audytów
+
+- **Niezależny** — nie sprzedajemy potem strony. Audyt jest osobnym produktem.
+- **Po polsku** — raport, rozmowa, wsparcie. Nie tłumaczenie z angielskiego.
+- **W kontekście DACH** — uwzględniamy DSGVO, Impressum (§5 TMG), HWG, niemieckie wyszukiwania, polski + niemiecki user.
+- **Gotowość pod AI jako 5 obszar** — w 2026 to przestało być opcjonalne. ChatGPT/Claude/Perplexity zaczynają polecać firmy lokalne. Bez gotowości = jesteś niewidzialny.
+- **Decyzja, nie raport** — dostajesz odpowiedź „co zrobić w jakiej kolejności", nie 30 stron technicznego żargonu.
+
+## Kontakt
+
+- Email: kontakt@muszynski.online
+- Strona: https://audyt.muszynski.online/
+- Specjalna akcja NRW (do 20 firm, fala maj-czerwiec 2026): https://audyt.muszynski.online/nrw/
+- LinkedIn Piotr Muszyński: https://www.linkedin.com/in/piotrmuszynski/
+
+## Pokrewne usługi
+
+- **Konsultacja AI 30 min — €150** · https://konsultacja.muszynski.online/ · diagnostyczna rozmowa, czy AI ma sens w Twojej firmie
+- **AI OS Setup pilot — €1.200** · architektura systemu AI dla MŚP, prowadzona przez Piotra
+- **Common Roots** · https://commonroots.life/ · zdrowie + AI, projekt z dr Marcinem Koreckim
+
+## O Piotrze Muszyńskim
+
+AI Architect dla polskiej przedsiębiorczości w Niemczech i DACH. Z zawodu kucharz, z wyboru AI Architect — buduje AI Operating Systems dla polskich firm działających na rynku niemieckim, od rzemiosła w NRW po B2B w Bawarii i Wiedniu.
+
+Lokalizacja: Witten (NRW). Operator: Muszyński.online (jednoosobowa działalność, Piotr Muszyński).
